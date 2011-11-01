@@ -11,57 +11,59 @@ ski-report uses the `xmlsimple` gem, so be sure to install that first.
 
 Usage
 ------
-  require './ski_report'
-
-  SkiReport.fetch([state]) #=> returns a report with an array of resorts
-  SkiReport.fetch 'Colorado'
-  SkiReport.fetch 'California'  
+	require './ski_report'
+	
+	# SkiReport.fetch([state]) #=> returns a report with an array of resorts
+	
+	SkiReport.fetch 'Colorado'
+	SkiReport.fetch 'California'  
   
 
 Resort Methods
 ------
 A resort has the following properties available as methods:
-* name - name of the resort
-* updated - when the report was last updated
-* status - open status, e.g. 'Temporarily Closed'
-* conditions - surface conditions, e.g. 'Packed Powder'
-* base - a hash
-  * :depth - snow depth at base
-  * :metric - metric of base snow depth, e.g. 'inches'
-* snowfall - a hash
-  * :amount - snowfall in the last 48 hours
-  * :metric - metric of 48hr snowfall, e.g. 'feet' 
+
+- name - name of the resort
+- updated - when the report was last updated
+- status - open status, e.g. 'Temporarily Closed'
+- conditions - surface conditions, e.g. 'Packed Powder'
+- base - a hash
+  - :depth - snow depth at base
+  - :metric - metric of base snow depth, e.g. 'inches'
+- snowfall - a hash
+  - :amount - snowfall in the last 48 hours
+  - :metric - metric of 48hr snowfall, e.g. 'feet' 
   
 Example
 ------
-  report = SkiReport.fetch 'Colorado'
-  report.resorts.each do |resort|
-  	puts "#{resort.name} - Status: #{resort.status} - Base: #{resort.base[:depth]} #{resort.base[:metric]}"
-  end
+	report = SkiReport.fetch 'Colorado'
+	report.resorts.each do |resort|
+		puts "#{resort.name} - Status: #{resort.status} - Base: #{resort.base[:depth]} #{resort.base[:metric]}"
+	end
 
-  # Arapahoe Basin - Status: Open - Base: 0 inches
-  # Aspen / Snowmass - Status: Closed - Base: 0 inches
-  # Beaver Creek - Status: Closed - Base: 0 inches
-  # Breckenridge - Status: Closed - Base: 0 inches
-  # Copper Mountain - Status: Closed - Base: 0 inches
-  # Crested Butte - Status: Closed - Base: 0 inches
-  # Durango - Status: Closed - Base: 0 inches
-  # Echo - Status: Closed - Base: 0 inches
-  # Eldora - Status: Closed - Base: 15 inches
-  # Howelsen Hill - Status: Closed - Base: 0 inches
-  # Keystone - Status: Closed - Base: 0 inches
-  # Loveland - Status: Open - Base: 18 inches
-  # Monarch - Status: Closed - Base: 0 inches
-  # Powderhorn - Status: Closed - Base: 0 inches
-  # Silverton - Status: Closed - Base: 0 inches
-  # Ski Cooper - Status: Closed - Base: 0 inches
-  # SolVista - Status: Closed - Base: 0 inches
-  # Steamboat - Status: Closed - Base: 0 inches
-  # Sunlight Mountain - Status: Closed - Base: 0 inches
-  # Telluride - Status: Closed - Base: 0 inches
-  # Vail - Status: Closed - Base: 0 inches
-  # Winter Park - Status: Closed - Base: 0 inches
-  # Wolf Creek - Status: Temporarily Closed - Base: 35 inches
+	# Arapahoe Basin - Status: Open - Base: 0 inches
+	# Aspen / Snowmass - Status: Closed - Base: 0 inches
+	# Beaver Creek - Status: Closed - Base: 0 inches
+	# Breckenridge - Status: Closed - Base: 0 inches
+	# Copper Mountain - Status: Closed - Base: 0 inches
+	# Crested Butte - Status: Closed - Base: 0 inches
+	# Durango - Status: Closed - Base: 0 inches
+	# Echo - Status: Closed - Base: 0 inches
+	# Eldora - Status: Closed - Base: 15 inches
+	# Howelsen Hill - Status: Closed - Base: 0 inches
+	# Keystone - Status: Closed - Base: 0 inches
+	# Loveland - Status: Open - Base: 18 inches
+	# Monarch - Status: Closed - Base: 0 inches
+	# Powderhorn - Status: Closed - Base: 0 inches
+	# Silverton - Status: Closed - Base: 0 inches
+	# Ski Cooper - Status: Closed - Base: 0 inches
+	# SolVista - Status: Closed - Base: 0 inches
+	# Steamboat - Status: Closed - Base: 0 inches
+	# Sunlight Mountain - Status: Closed - Base: 0 inches
+	# Telluride - Status: Closed - Base: 0 inches
+	# Vail - Status: Closed - Base: 0 inches
+	# Winter Park - Status: Closed - Base: 0 inches
+	# Wolf Creek - Status: Temporarily Closed - Base: 35 inches
 
 Credit
 ------
