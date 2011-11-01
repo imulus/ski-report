@@ -35,7 +35,7 @@ module SkiReport
 			@attributes = attributes
 		end
 
-		['name','updated','status','base','snowfall','conditions','metric'].each do |arg|
+		['name','updated','status','base','snowfall','conditions'].each do |arg|
 			send :define_method, arg.to_sym do
 				@attributes[arg] || @attributes[arg.to_sym]
 			end
